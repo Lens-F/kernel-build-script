@@ -16,15 +16,17 @@
     echo "Copying modules"
     rm -f /home/tal/Desktop/kernel_out/boot.img-ramdisk/lib/modules/*
      
-    find . -name "*.ko" -exec cp {} /home/tal/android/kernel/purple-flare/m7/m7wls/boot.img-ramdisk/lib/modules/ \;
+    find . -name "*.ko" -exec cp {} /home/tal/Desktop/kernel_out/boot.img-ramdisk/lib/modules/ \;
      
     cd /home/tal/Desktop/kernel_out/boot.img-ramdisk/lib/modules/
      
     for i in $(find . | grep .ko | grep './')
     do
+
+        echo $i
+        /home/tal/linaro-4.7/bin/arm-eabi-strip --strip-unneeded $i
+done
      
     echo "Stripped Modules"
     echo "All done,Press Enter to Quit"
     read ANS
-
-
