@@ -22,7 +22,6 @@
      
     for i in $(find . | grep .ko | grep './')
     do
-    done
      
     echo "Stripped Modules"
     echo "All done,Press Enter to Quit"
